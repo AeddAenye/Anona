@@ -2,6 +2,8 @@
   <Dialog />
 </template>
 
+
+//
 <script>
 import Dialog from './components/dialog.vue'
 
