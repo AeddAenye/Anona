@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="avatar full-center"><img src="../assets/1.png" alt="">
+        <div class="avatar full-center"><img src="../../assets/avatar.png" alt="">
             <div class="notifie"></div>
         </div>
         <div class="name align-center">ADAE</div>
@@ -14,7 +14,7 @@
     display: grid;
     grid-template-columns: 1fr 7fr;
     grid-template-rows: 1fr 2fr;
-    gap: 10px 10px;
+    gap: 10px 30px;
     grid-auto-flow: row;
 
     
@@ -24,13 +24,13 @@
         "avatar last-message";
 
     margin: 5% 0px;
-    padding: 10px;
 
     
 }
 
 .avatar {
     justify-self: center;
+    align-self: center;
     grid-area: avatar;
     aspect-ratio: 1;
 
@@ -55,7 +55,7 @@
 
 .name {
     grid-area: name;
-    font-size: 1.3vw;
+    font-size: 1.2vw;
 }
 
 .last-message {
@@ -63,6 +63,40 @@
     font-size: 1vw;
     height: 100%;
     color: rgb(160, 160, 160);
+}
+
+
+@media screen and (max-width: 1200px) {
+    .last-message{
+        font-size: 1.2vw;
+    }
+}
+
+
+@media screen and (max-width: 900px) {
+    .name{
+        font-size: 2vw;
+    }
+    .last-message{
+        font-size: 1.5vw;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .avatar {
+        width: 90px;
+    }
+
+    .avatar img{
+        border-radius: 50%;
+    }
+
+    .name{
+        font-size: 4vw;
+    }
+    .last-message{
+        font-size: 2.5vw;
+    }
 }
 
 </style>
