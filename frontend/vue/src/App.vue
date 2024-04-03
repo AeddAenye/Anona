@@ -1,16 +1,16 @@
+
 <template>
-  <Dialog />
+  <DialogScreen />
 </template>
 
 
-//
 <script>
-import Dialog from './components/dialog.vue'
+  import DialogScreen from './components/dialogScreen.vue'
 
 export default {
   name: 'App',
   components: {
-    Dialog
+    DialogScreen
   }
 }
 </script>
