@@ -1,0 +1,25 @@
+{
+    "Users": [
+        {
+            "id": 1,
+            "name": "ADAE",
+            "avatar": "../../assets/avatar.png"
+        },
+
+        {
+            "id": 2,
+            "name": "John",
+            "avatar": "../../assets/avatar.png"
+        },
+        {
+            "id": 3,
+            "name": "Jane",
+            "avatar": "../../assets/komaru.png"
+        },
+        {
+            "id": 4,
+            "name": "Doe",
+            "avatar": "../../assets/komaru.png"
+        }
+    ]
+}

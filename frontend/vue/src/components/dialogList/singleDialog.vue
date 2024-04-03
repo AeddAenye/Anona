@@ -9,7 +9,6 @@
 </template>
 
 <style scoped>
-
 .container {
     display: grid;
     grid-template-columns: 1fr 7fr;

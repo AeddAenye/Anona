@@ -5,7 +5,7 @@
 
 
 <script>
-  import DialogScreen from './components/dialog/container.vue'
+  import DialogScreen from './components/dialogList/container.vue'
 
 export default {
   name: 'App',
