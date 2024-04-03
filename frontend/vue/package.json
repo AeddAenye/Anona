@@ -11,6 +11,7 @@
     "vuex": "^4.1.0"
   },
   "devDependencies": {
+    "@vue/cli-plugin-vuex": "~5.0.0",
     "@vue/cli-service": "~5.0.0"
   },
   "browserslist": [
