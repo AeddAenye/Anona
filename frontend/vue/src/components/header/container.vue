@@ -2,48 +2,34 @@
     <div class="wrapper">
         <div class="logo">
             <picture>
-                <img src="Anona.jpg" alt="">
+                <img src="./Anona.jpg" alt="">
             </picture>
         </div>
         <div class="profile">
-            ТУТ БУДЕТ ПРОФИЛЬ
         </div>
     </div>
 
 </template>
 
-<script>
-export default {
-    name: 'headerContainer',
-  components: {
-  }
-}
-</script>
-<script setup>
-
-</script>
 
 <style scoped>
 .wrapper{
     background-color: var(--accent-bg-color);
-    width: 100svw;
+    width: calc(100svw - 6svw);
 
 
     display: flex;
     align-items: center;
 
-    padding: 10px;
-    margin-bottom: 3%;
+    padding: 1svw;
+    margin: 1svw 2svw 3svw 2svw;
+    border-radius: 10px;
 }
 
 .logo{
-    
     display: flex;
     align-items: center;
-    
     border-radius: 20px;
-
-
 }
 
 .logo picture{
@@ -55,13 +41,6 @@ export default {
 .logo img{
     width: 100%;
     border-radius: 20px;
-}
-
-
-.profile {
-  justify-self: end; 
-  align-self: center; 
-  grid-area: profile; 
 }
 
 @media  screen and (max-width: 1200px) {

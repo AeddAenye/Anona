@@ -24,6 +24,13 @@
             "name": "Doe",
             "avatar": "assets/komaru.png",
             "lastMessage": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum recusandae voluptatem dignissimos blanditiis eveniet adipisci quae obcaecati id suscipit sunt!"
+        },
+
+        {
+            "id": 5,
+            "name": "Marta",
+            "avatar": "assets/komaru.png",
+            "lastMessage": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum recusandae voluptatem dignissimos blanditiis eveniet adipisci quae obcaecati id suscipit sunt! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum recusandae voluptatem dignissimos blanditiis eveniet adipisci quae obcaecati id suscipit sunt!"
         }
     ]
 }
