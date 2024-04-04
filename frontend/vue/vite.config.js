@@ -8,7 +8,6 @@ export default defineConfig({
   plugins: [
     vue(),
   ],
-  base: 'Anona',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
