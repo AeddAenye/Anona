@@ -1,6 +1,7 @@
 <template>
     <Menu />
-    <Dialog />
+      <Dialog v-for="dialog in dialogs" :key="dialog.id"
+      :dialogName="dialog.name" :dialogAvatar="dialog.avatar" :lastMessage="dialog.lastMessage"/>
 </template>
 
 <script>
@@ -14,4 +15,18 @@ export default {
     Menu
   }
 }
+</script>
+<script setup>
+import { useStore } from 'vuex'
+import { ref, onMounted } from 'vue'
+
+const store = useStore()
+let dialogs = ref({})
+
+onMounted(async () => {
+  console.log('mounted')
+  await store.dispatch('GET_DIALOGS')
+  dialogs.value = store.getters.DIALOGS
+})
+
 </script>

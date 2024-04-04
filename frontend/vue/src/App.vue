@@ -1,20 +1,33 @@
-
 <template>
-  <DialogScreen />
+  <div class="app-container">
+    <header>
+      <HeaderContainer />
+    </header>
+    <Screen/>
+  </div>
 </template>
 
-
 <script>
-  import DialogScreen from './components/dialogList/container.vue'
-
+import HeaderContainer from './components/header/container.vue'
+import Screen from './components/screen.vue'
 export default {
   name: 'App',
   components: {
-    DialogScreen
+    Screen,
+    HeaderContainer
   }
-}
+  }
 </script>
 
-<style>
 
+<style scoped>
+.app-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 10px;
+
+}
 </style>

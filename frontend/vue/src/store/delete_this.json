@@ -1,0 +1,29 @@
+{
+    "Users": [
+        {
+            "id": 1,
+            "name": "ADAE",
+            "avatar": "assets/avatar.png",
+            "lastMessage": "Hey guys!"
+        },
+
+        {
+            "id": 2,
+            "name": "John",
+            "avatar": "assets/komaru.png",
+            "lastMessage": "Hey guys! I am fine thanks! What about you?"  
+        },
+        {
+            "id": 3,
+            "name": "Jane",
+            "avatar": "assets/avatar.png",
+            "lastMessage" : "Hey guys! I am fine thanks!" 
+        },
+        {
+            "id": 4,
+            "name": "Doe",
+            "avatar": "assets/komaru.png",
+            "lastMessage": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum recusandae voluptatem dignissimos blanditiis eveniet adipisci quae obcaecati id suscipit sunt!"
+        }
+    ]
+}

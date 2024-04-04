@@ -21,7 +21,7 @@
   grid-template-areas: 
     "title search dropmenu"; 
 
-    margin: 5% 0px;
+    margin: 3% 0px;
 
     align-items: center;
 }
