@@ -23,18 +23,18 @@
 
     padding: 1svw;
     margin: 1svw 2svw 3svw 2svw;
-    border-radius: 10px;
+    border-radius: 20px;
 }
 
 .logo{
     display: flex;
     align-items: center;
-    border-radius: 20px;
 }
 
 .logo picture{
-    width: 6svw;
+    width: 4svw;
     aspect-ratio: 1;
+    border-radius: 20px;
 
 }
 
@@ -51,7 +51,7 @@
 
 @media screen and (max-width: 900px) {
     .logo{
-        padding: 2%;
+        padding: 1%;
     }
 
     .logo picture{

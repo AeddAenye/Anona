@@ -16,18 +16,18 @@ const { dialogName, dialogAvatar, lastMessage } = defineProps(['dialogName', 'di
 
 <style scoped>
 .container {
-    border-radius: 30px;
+    border-radius: 20px;
     display: grid;
     grid-template-columns: 1fr 7fr;
     grid-template-rows: 1fr 2fr;
-    gap: 1% 3%;
+    gap: 1% 2%;
     grid-auto-flow: row;
 
     grid-template-areas:
         "avatar name"
         "avatar last-message";
 
-    margin: 3% 0px;
+    margin: 2% 0px;
     padding: 10px;
 
     transition: all 0.3s ease;
@@ -50,7 +50,7 @@ const { dialogName, dialogAvatar, lastMessage } = defineProps(['dialogName', 'di
 .avatar img{
     width: 100%;
     height: 100%;
-    border-radius: 30px;
+    border-radius: 20px;
 }
 
 .notifie{
