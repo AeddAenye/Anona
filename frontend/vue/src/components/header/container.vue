@@ -25,7 +25,7 @@
     align-items: center;
 
     padding: 1svw;
-    margin: 1svw 2svw 3svw 2svw;
+    margin: 1svw;
     border-radius: 20px;
 }
 

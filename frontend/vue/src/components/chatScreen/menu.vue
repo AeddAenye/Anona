@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="backward">
-      <button type="button">
+      <button type="button" @click="returnToDialogsList()">
       <img src="../../../public/assets/arrow-left.svg" alt="">
       </button>
     </div>
@@ -22,6 +22,15 @@
     </div>
   </div>
 </template>
+
+<script setup>
+import { inject } from 'vue'
+
+const store = inject('store')
+const returnToDialogsList = () => {
+  store.dispatch('SET_CHATNAME', 'None')
+}
+</script>
 
 <style scoped>
     .container {  display: grid;

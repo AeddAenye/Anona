@@ -111,6 +111,8 @@ watch(messages, () => {
   --grid-rows: auto;
 
   padding: 10px 0px 140px 0px;
+
+  overflow-y: scroll;
 }
 
 .container > div {

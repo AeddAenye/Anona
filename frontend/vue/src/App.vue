@@ -19,6 +19,15 @@ export default {
   }
 </script>
 
+<script setup>
+import { provide, ref } from 'vue'
+import { useStore } from 'vuex'
+
+const store = useStore()
+
+provide('store', store)
+</script>
+
 
 <style scoped>
 .app-container{
@@ -27,7 +36,7 @@ export default {
     justify-content: center;
     align-items: center;
     color: white;
-    padding: 10px;
+    margin: 10px;
 
 }
 </style>

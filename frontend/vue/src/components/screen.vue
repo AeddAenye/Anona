@@ -1,30 +1,37 @@
 <template>
     <div class="wrapper" >
-        <DialogScreen v-if="chatName === 'None'"/>
+        <DialogScreen v-if="chatName == 'None'"/>
         <ChatScreen v-else-if="chatName !== 'None'"/>
     </div>
 
 </template>
     
 <script>
-    import DialogScreen from './dialogList/container.vue'
-    import ChatScreen from './chatScreen/container.vue'
-import { ref } from 'vue';
-        
-    export default {
-    name: 'Screen',
-    components: {
-        DialogScreen,
-        ChatScreen
-    }
-    }
+import DialogScreen from './dialogList/container.vue'
+import ChatScreen from './chatScreen/container.vue'
+export default {
+name: 'Screen',
+components: {
+    DialogScreen,
+    ChatScreen
+}
+}
 </script>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, watch } from 'vue'
+import { useStore } from 'vuex'
 
-let chatName = ref('Non')
-console.log(chatName.value);
+
+const store = useStore()
+let chatName = ref(store.getters.CHATNAME)
+console.log(chatName.value)
+
+
+watch(() => store.getters.CHATNAME, (newVal) => {
+  chatName.value = newVal
+  console.log(chatName.value)
+})
 </script>
 
 <style scoped>

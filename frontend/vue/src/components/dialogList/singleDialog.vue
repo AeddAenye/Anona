@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container" @click="updateChatName(dialogName)">
         <div class="avatar full-center"><img :src="dialogAvatar">
             <div class="notifie"></div>
         </div>
@@ -9,9 +9,17 @@
 </template>
 
 <script setup>
-import { defineProps, onMounted } from 'vue'
+import { defineProps} from 'vue'
+import { useStore } from 'vuex'
 
 const { dialogName, dialogAvatar, lastMessage } = defineProps(['dialogName', 'dialogAvatar', 'lastMessage'])
+
+
+const store = useStore()
+
+const updateChatName = (newName) => {
+  store.dispatch('SET_CHATNAME', newName)
+}
 </script>
 
 <style scoped>
