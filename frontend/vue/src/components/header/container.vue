@@ -4,6 +4,9 @@
             <picture>
                 <img src="./Anona.jpg" alt="">
             </picture>
+            <div class="title">
+                <span>Anona</span>
+            </div>
         </div>
         <div class="profile">
         </div>
@@ -29,6 +32,7 @@
 .logo{
     display: flex;
     align-items: center;
+    gap: 1svw;
 }
 
 .logo picture{
@@ -43,10 +47,18 @@
     border-radius: 20px;
 }
 
+.logo .title{
+    font-size: 2svw;
+}
+
 @media  screen and (max-width: 1200px) {
     .logo picture{
         width: 7svw;
     }
+
+    .logo .title{
+    font-size: 4svw;
+}
 }
 
 @media screen and (max-width: 900px) {
@@ -58,6 +70,9 @@
         width: 9svw;
     }
 
+    .logo .title{
+    font-size: 5svw;
+}
     
 }
 
@@ -65,6 +80,10 @@
     .logo picture{
         width: 12svw;
     }
+
+    .logo .title{
+    font-size: 7svw;
+}
 
     
 }
