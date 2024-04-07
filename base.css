@@ -16,8 +16,19 @@
 body{
     background-color: var(--bg-color);
     user-select: none;
-
     overflow-x: hidden;
+    height: 100svh;
+}
+
+
+#app{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    color: white;
+    padding: 10px;
+    height: calc(100% - 20px);
 }
 
 .align-center{
