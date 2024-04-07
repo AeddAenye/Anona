@@ -1,0 +1,91 @@
+<template>
+    <div class="background">
+        <div class="reg-container">
+            <div class="reg-container__exit">
+                <button type="button" @click="emits('close')">X</button>
+            </div>
+            <input type="text" placeholder="Ваш ник">
+            <input type="password" name="" id="" placeholder="Ваш пароль">
+            <button type="button">Зарегистрироваться</button>
+        </div>
+    </div>
+
+</template>
+
+<script>
+export default {
+  name: 'RegModal'
+}
+</script>
+
+<script setup>
+import { defineEmits } from 'vue'
+const emits = defineEmits(['close'])
+
+
+
+
+</script>
+
+<style scoped>
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100svw;
+    height: 100svh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+.reg-container__exit {
+    position: absolute;
+    top: 1svw;
+    right: 1svw;
+}
+
+.reg-container__exit button {
+    background-color: red;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 1svw;
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.reg-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 50%;
+    height: 50%;
+    
+    background-color:  rgb(30, 30, 30);
+    border-radius: 2svw;
+    padding: 2svw;
+    box-sizing: border-box;
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1svw;
+}
+
+input{
+    width: 70%;
+    height: 5vh;
+    font-size: 1.5svw;
+    border-radius: 2svw;
+    padding: 1svw 2svw;
+    border: none;
+    background-color: rgb(50, 50, 50);
+}
+</style>

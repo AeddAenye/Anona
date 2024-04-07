@@ -1,5 +1,5 @@
 <template>
-    <div class="container" @click="updateChatName(dialogName)">
+    <div class="single-dialog-container" @click="updateChatName(dialogName)">
         <div class="avatar full-center"><img :src="dialogAvatar">
             <div class="notifie"></div>
         </div>
@@ -9,21 +9,17 @@
 </template>
 
 <script setup>
-import { defineProps} from 'vue'
-import { useStore } from 'vuex'
-
+import { defineProps, inject} from 'vue'
 const { dialogName, dialogAvatar, lastMessage } = defineProps(['dialogName', 'dialogAvatar', 'lastMessage'])
 
-
-const store = useStore()
-
+const store = inject('store')
 const updateChatName = (newName) => {
   store.dispatch('SET_CHATNAME', newName)
 }
 </script>
 
 <style scoped>
-.container {
+.single-dialog-container {
     border-radius: 20px;
     display: grid;
     grid-template-columns: 1fr 7fr;
@@ -41,7 +37,7 @@ const updateChatName = (newName) => {
     transition: all 0.3s ease;
 }
 
-.container:hover {
+.single-dialog-container:hover {
     background-color: rgb(50, 50, 50);
 }
 
@@ -58,7 +54,7 @@ const updateChatName = (newName) => {
 .avatar img{
     width: 100%;
     height: 100%;
-    border-radius: 20px;
+    border-radius: 2svw;
 }
 
 .notifie{
@@ -101,12 +97,17 @@ const updateChatName = (newName) => {
 }
 
 @media screen and (max-width: 700px) {
+    .single-dialog-container{
+        grid-template-rows: 1fr 1fr;
+    }
     .avatar {
         width: 90px;
     }
 
     .avatar img{
         border-radius: 50%;
+        width: 80%;
+        height: 80%;
     }
 
     .name{

@@ -68,7 +68,7 @@ const returnToDialogsList = () => {
 }
 
 .friend .name{
-  font-size: 1.3svw;
+  font-size: 2svw;
 }
 
 .backward {
@@ -109,5 +109,30 @@ button{
     border-radius: 50%;
 
     cursor: pointer;
+}
+
+
+@media screen and (max-width: 1200px) {
+    .friend .name{
+    font-size: 3svw;
+  }  
+}
+
+@media screen and (max-width: 900px) {
+    .friend .name{
+    font-size: 4svw;
+  }
+}
+
+@media screen and (max-width: 700px) {
+    .friend .name{
+    font-size: 5svw;
+  }
+}
+
+@media screen and (max-width: 500px) {
+    .friend .name{
+    font-size: 6svw;
+  }
 }
 </style>

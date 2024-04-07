@@ -6,18 +6,17 @@
             "avatar": "assets/avatar.png",
             "lastMessage": "Hey guys!"
         },
-
         {
             "id": 2,
             "name": "John",
             "avatar": "assets/komaru.png",
-            "lastMessage": "Hey guys! I am fine thanks! What about you?"  
+            "lastMessage": "Hey guys! I am fine thanks! What about you?"
         },
         {
             "id": 3,
             "name": "Jane",
             "avatar": "assets/avatar.png",
-            "lastMessage" : "Hey guys! I am fine thanks!" 
+            "lastMessage" : "Hey guys! I am fine thanks!"
         },
         {
             "id": 4,
@@ -25,12 +24,101 @@
             "avatar": "assets/komaru.png",
             "lastMessage": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum recusandae voluptatem dignissimos blanditiis eveniet adipisci quae obcaecati id suscipit sunt!"
         },
-
         {
             "id": 5,
             "name": "Marta",
             "avatar": "assets/komaru.png",
             "lastMessage": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum recusandae voluptatem dignissimos blanditiis eveniet adipisci quae obcaecati id suscipit sunt! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum recusandae voluptatem dignissimos blanditiis eveniet adipisci quae obcaecati id suscipit sunt!"
+        },
+        {
+            "id": 6,
+            "name": "Alex",
+            "avatar": "assets/komaru.png",
+            "lastMessage": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum recusandae voluptatem dignissimos blanditiis eveniet adipisci quae obcaecati id suscipit sunt!"
+        },
+        {
+            "id": 7,
+            "name": "Alice",
+            "avatar": "assets/avatar.png",
+            "lastMessage": "Hey! How's everyone doing today?"
+        },
+        {
+            "id": 8,
+            "name": "Bob",
+            "avatar": "assets/komaru.png",
+            "lastMessage": "Hello, Alice! I'm doing great, thanks for asking!"
+        },
+        {
+            "id": 9,
+            "name": "Eva",
+            "avatar": "assets/avatar.png",
+            "lastMessage": "Hi everyone! Just wanted to say hello."
+        },
+        {
+            "id": 10,
+            "name": "Mark",
+            "avatar": "assets/komaru.png",
+            "lastMessage": "Hey Eva! Nice to see you here."
+        },
+        {
+            "id": 11,
+            "name": "Sophie",
+            "avatar": "assets/avatar.png",
+            "lastMessage": "Good morning, everyone! How's your day going?"
+        },
+        {
+            "id": 12,
+            "name": "Tom",
+            "avatar": "assets/komaru.png",
+            "lastMessage": "Morning, Sophie! My day's off to a good start, thanks!"
+        },
+        {
+            "id": 13,
+            "name": "Linda",
+            "avatar": "assets/avatar.png",
+            "lastMessage": "Hello, folks! What's the plan for today?"
+        },
+        {
+            "id": 14,
+            "name": "Chris",
+            "avatar": "assets/komaru.png",
+            "lastMessage": "Not much, Linda. Just taking it easy."
+        },
+        {
+            "id": 15,
+            "name": "Rachel",
+            "avatar": "assets/avatar.png",
+            "lastMessage": "Hey everyone! Sorry I'm late to the chat."
+        },
+        {
+            "id": 16,
+            "name": "Peter",
+            "avatar": "assets/komaru.png",
+            "lastMessage": "No worries, Rachel! We just started."
+        },
+        {
+            "id": 17,
+            "name": "Olivia",
+            "avatar": "assets/avatar.png",
+            "lastMessage": "Hey guys! What's new?"
+        },
+        {
+            "id": 18,
+            "name": "Lucas",
+            "avatar": "assets/komaru.png",
+            "lastMessage": "Not much, Olivia. Just the usual."
+        },
+        {
+            "id": 19,
+            "name": "Natalie",
+            "avatar": "assets/avatar.png",
+            "lastMessage": "Hi everyone! How's the weather where you are?"
+        },
+        {
+            "id": 20,
+            "name": "Sam",
+            "avatar": "assets/komaru.png",
+            "lastMessage": "Hey Natalie! It's sunny here, perfect day!"
         }
     ]
 }

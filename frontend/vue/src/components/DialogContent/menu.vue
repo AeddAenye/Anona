@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="menu-container">
         <div class="title">Все чаты</div>
         <div class="dropmenu">
             <button class="dropbutton" type="button">
@@ -13,7 +13,7 @@
 </template>
 
 <style scoped>
-.container {
+.menu-container {
   display: grid; 
   grid-template-columns: 1fr 2fr 1fr; 
   grid-template-rows: 1fr; 
@@ -77,7 +77,7 @@
 }
 
 @media screen and (max-width: 500px) {
-    .container {
+    .menu-container {
   grid-template-columns: 1fr 1fr 1fr; 
   gap: 5px 5px; 
 }

@@ -1,20 +1,28 @@
 <template>
-  <div class="container">
-    <div v-for="(message, index) in messages" class="message" :key="index">
-
-      <div class="message__name">
-        {{ message.owner }}
-      </div>
-      <div class="message__text">
-        {{ message.text }}
-      </div>
-    </div>
+  <ChatMenu />
+  <div class="chat__container">
+    <Message v-for="(message, index) in messages" :key="index" :message="message" />
   </div>
+  <Input />
 </template>
+
+<script>
+import ChatMenu from './menu.vue'
+import Message from './message.vue'
+import Input from './input.vue'
+
+export default {
+  name: 'ChatContainer',
+  components: {
+    ChatMenu,
+    Message,
+    Input
+  }
+}
+</script>
 
 <script setup>
 import { ref, watch } from 'vue';
-import { useStore } from 'vuex'
 
 const messages = ref([]);
 
@@ -103,43 +111,20 @@ watch(messages, () => {
 </script>
 
 <style scoped>
-.container {
+.chat__container {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px 10px;
   grid-auto-flow: row;
   --grid-rows: auto;
-
-  padding: 10px 0px 140px 0px;
-
+  grid-template-rows: repeat(var(--grid-rows), auto);
   overflow-y: scroll;
 }
 
-.container > div {
+.chat__container>div {
   grid-row-end: span 1;
 }
 
 
-.message {
-  width: fit-content;
-  max-width: 80%;
-  border: 1px solid rgb(80, 80, 80);
-  border-radius: 0.5svw;
-  padding: 0.7svw;
-
-  justify-self: start;
-  align-self: stretch;
-}
-
-.message__name{
-  font-size: 1svw;
-  font-weight: 600;
-  padding-bottom: 0.5svw;
-}
-
-/* Устанавливаем количество строк в grid */
-.container {
-  grid-template-rows: repeat(var(--grid-rows), auto);
-}
-
 </style>
+

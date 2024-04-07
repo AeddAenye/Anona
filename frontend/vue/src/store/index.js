@@ -4,7 +4,8 @@ import JSONdata from './delete_this.json'
 export default createStore({
   state: {
     dialogs: null,
-    chatName: "None"
+    chatName: "None",
+    regmodal: false
   },
 
   getters: {
@@ -14,6 +15,10 @@ export default createStore({
 
     CHATNAME: state => {
       return state.chatName
+    },
+
+    REGMODAL: state => {
+      return state.regmodal
     }
   },
 
@@ -24,6 +29,10 @@ export default createStore({
 
     SET_CHATNAME: (state, chatName) => {
       state.chatName = chatName
+    },
+
+    SET_REGMODAL: (state, regmodal) => {
+      state.regmodal = regmodal
     }
   },
 
@@ -32,8 +41,12 @@ GET_DIALOGS: async ({commit}) => {
   commit('SET_DIALOGS', JSONdata.Users)
 },
 
-SET_CHATNAME: ({commit}, chatName) => {
+GET_CHATNAME: ({commit}, chatName) => {
   commit('SET_CHATNAME', chatName)
+},
+
+GET_REGMODAL: ({commit}, regmodal) => {
+  commit('SET_REGMODAL', regmodal)
 }
-  }
-})
+
+}})
