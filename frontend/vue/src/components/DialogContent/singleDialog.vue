@@ -14,7 +14,7 @@ const { dialogName, dialogAvatar, lastMessage } = defineProps(['dialogName', 'di
 
 const store = inject('store')
 const updateChatName = (newName) => {
-  store.dispatch('SET_CHATNAME', newName)
+  store.dispatch('GET_CHATNAME', newName)
 }
 </script>
 
