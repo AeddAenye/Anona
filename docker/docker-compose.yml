@@ -5,7 +5,9 @@ services:
     image: mysql:latest
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: RABBIT.inhople20!
+      MYSQL_ROOT_PASSWORD: RABBIT.inhole20!
+    ports:
+      - "3306:3306"
     volumes:
       - ./mysql_data:/var/lib/mysql
       
@@ -17,7 +19,6 @@ services:
     environment:
       PMA_HOST: mysql
       PMA_PORT: 3306
-      MYSQL_ROOT_PASSWORD: eRABBIT.inhople20!
+      MYSQL_ROOT_PASSWORD: RABBIT.inhole20!
     ports:
       - "8081:80"
-
