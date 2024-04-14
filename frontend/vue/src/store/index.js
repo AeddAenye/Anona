@@ -1,65 +1,100 @@
 import { createStore } from 'vuex'
-import JSONdata from './delete_this.json'
 
 export default createStore({
   state: {
-    dialogs: null,
-    chatName: "None",
-    regmodal: false,
-    authorized: false
-  },
+    authorized: localStorage.getItem('authorized') === 'true',
+    access_token: localStorage.getItem('access_token'),
+    username: localStorage.getItem('username'),
+    friendname: 'None',
 
-  getters: {
-    DIALOGS: state => {
-      return state.dialogs
-    },
-
-    CHATNAME: state => {
-      return state.chatName
-    },
-
-    REGMODAL: state => {
-      return state.regmodal
-    },
-
-    AUTHORIZED: state => {
-      return state.authorized
-    }
   },
 
   mutations: {
-    SET_DIALOGS: (state, dialogs) => {
-      state.dialogs = dialogs
+    setAuthorized(state, payload) {
+      state.authorized = payload
+      localStorage.setItem('authorized', payload)
     },
-
-    SET_CHATNAME: (state, chatName) => {
-      state.chatName = chatName
+    setAccessToken(state, payload) {
+      state.access_token = payload
+      localStorage.setItem('access_token', payload)
     },
-
-    SET_REGMODAL: (state, regmodal) => {
-      state.regmodal = regmodal
+    setUsername(state, payload) {
+      state.username = payload
+      localStorage.setItem('username', payload)
     },
-
-    SET_AUTHORIZED: (state, authorized) => {
-      state.authorized = authorized
+    setFriendname(state, payload) {
+      state.friendname = payload
+    },
+    resetState(state) {
+      state.authorized = false
+      state.access_token = ''
+      state.username = ''
+      state.friendname = ''
     }
   },
 
   actions: {
-GET_DIALOGS: async ({commit}) => {
-  commit('SET_DIALOGS', JSONdata.Users)
-},
+    async login({ commit }, data) {
+      const url = 'http://localhost:3000/api/login';
+      const requestOptions = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      };
 
-GET_CHATNAME: ({commit}, chatName) => {
-  commit('SET_CHATNAME', chatName)
-},
+      try {
+        let response = await fetch(url, requestOptions);
+        let json = await response.json();
 
-GET_REGMODAL: ({commit}, regmodal) => {
-  commit('SET_REGMODAL', regmodal)
-},
+        if (response.ok) {
+          commit('setUsername', data.username)
+          commit('setAuthorized', true)
+          commit('setAccessToken', json.access_token)
+        } else {
+          throw new Error('Failed to login');
+        }
+      } catch (error) {
+        throw error;
+      }
+    },
 
-GET_AUTHORIZED: ({commit}, authorized) => {
-  commit('SET_AUTHORIZED', authorized)
-}
+    async newDialog({ commit }, data) {
+      const url = 'http://localhost:3000/api/newDialog';
+      const requestOptions = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      };
+      try {
+        let response = await fetch(url, requestOptions);
+        let json = await response.json();
+    
+        if (response.ok) {
+          commit('setFriendname', data.friendname)
+        } else {
+          throw new Error('Failed to create dialog');
+        }
+    
+        
+      } catch (error) {
+        throw error;
+      }
+    }
+  },
 
-}})
+  getters: {
+    getAuthorized(state) {
+      return state.authorized
+    },
+    getAccessToken(state) {
+      return state.access_token
+    },
+    getUsername(state) {
+      return state.username
+    }
+  }
+})

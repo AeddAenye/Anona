@@ -25,17 +25,12 @@ import { ref, onMounted, inject } from 'vue'
 const store = inject('store')
 let dialogs = ref({})
 
-onMounted(async () => {
-  await store.dispatch('GET_DIALOGS')
-  dialogs.value = store.getters.DIALOGS
-})
-
 </script>
 
 <style scoped>
 .dialog-container {
   height: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 </style>
 

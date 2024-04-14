@@ -27,8 +27,10 @@
 import { inject } from 'vue'
 
 const store = inject('store')
+
 const returnToDialogsList = () => {
-  store.dispatch('SET_CHATNAME', 'None')
+  console.log('click');
+  store.commit('SET_CHATNAME', 'None')
 }
 </script>
 

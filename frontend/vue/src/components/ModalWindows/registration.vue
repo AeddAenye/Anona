@@ -2,11 +2,12 @@
     <div class="background">
         <div class="reg-container">
             <div class="reg-container__exit">
-                <button type="button" @click="emits('close')">X</button>
+                <button type="button" @click="close()">X</button>
             </div>
-            <input type="text" placeholder="Ваш ник" v-model="username" required minlength="4">
-            <input type="password" name="" id="" placeholder="Ваш пароль" v-model="password" required minlength="8">
+            <input type="text" placeholder="Ваш ник" v-model="username" required minlength="4" maxlength="8">
+            <input type="password" name="" placeholder="Ваш пароль" v-model="password" required minlength="8">
             <button type="button" @click="reg()">Регистрация</button>
+            <div v-if="success">Регистрация прошла успешно!</div>
         </div>
     </div>
 
@@ -26,6 +27,14 @@ import { defineEmits, ref } from 'vue'
 const emits = defineEmits(['close'])
 let username = ref('')
 let password = ref('')
+let success = ref(false)
+
+const close = () => {
+    username.value = ''
+    password.value = ''
+    success.value = false
+    emits('close')
+}
 
 const reg = async () => {
     const url = 'http://localhost:3000/api/reg';
@@ -48,7 +57,12 @@ const reg = async () => {
     try {
         let response = await fetch(url, requestOptions);
         let json = await response.json();
-        console.log('Response:', json);
+
+        if (response.ok) {
+            success.value = true
+            username.value = ''
+            password.value = ''
+        }
     } catch (error) {
         console.error('Fetch Error:', error);
     }
@@ -80,7 +94,7 @@ const reg = async () => {
     border: none;
     width: 30px;
     height: 30px;
-    border-radius: 1svw;
+    border-radius: 0.7svw;
     color: white;
 
     display: flex;
@@ -107,6 +121,7 @@ const reg = async () => {
     align-items: center;
     justify-content: center;
     gap: 1svw;
+
 }
 
 input{
@@ -117,10 +132,12 @@ input{
     padding: 1svw 2svw;
     border: none;
     background-color: rgb(50, 50, 50);
+    color: white;
+
 }
 
 button{
-    font-size: 1svw;
+    font-size: 1.2svw;
     padding: 0.5svw;
     border-radius: 0.7svw;
     border: none;

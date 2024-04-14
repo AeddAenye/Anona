@@ -10,14 +10,17 @@
         </div>
 
         <div class="login-container" v-if=!auth>
-                <button type="button" class="action__button" @click="regModal = true">Войти в сеть</button >
+                <button type="button" class="action__button" @click="regModal = true">Регистрация</button >
                     <RegModal  v-show="regModal" @close="regModal = false"/>
+                <button type="button" class="action__button" @click="loginModal = true">Войти</button >
+                    <LoginModal  v-show="loginModal" @close="loginModal = false"/>
+                    <span></span>
             </div>
 
         <div class="account" v-if=auth>
 
             <div class="name">
-                <span>Адада</span>
+                <span>{{ username }}</span>
             </div>
 
             <div class="avatar">
@@ -32,23 +35,32 @@
 
 </template>
 
-<script>
-    import RegModal from '../ModalWindows/registration.vue'
-    export default {
-        name: 'HeaderContainer',
-        components: {
-            RegModal
-        }
-    }
-</script>
-
 <script setup>
-    import { ref, inject } from 'vue';
-    let regModal = ref(false)
+import { ref, computed } from 'vue';
+import { useStore } from 'vuex';
+import RegModal from '../ModalWindows/registration.vue';
+import LoginModal from '../ModalWindows/login.vue';
 
-    const store = inject('store')
+let regModal = ref(false);
+let loginModal = ref(false);
+const store = useStore();
 
-    let auth = ref(store.state.AUTHORIZED)
+const username = computed(() => store.getters.getUsername)
+const auth = computed(() => store.getters.getAuthorized)
+
+</script>   
+
+<script>
+import RegModal from '../ModalWindows/registration.vue'
+import LoginModal from '../ModalWindows/login.vue'
+
+export default {
+  name: 'HeaderContainer',
+  components: {
+    RegModal,
+    LoginModal
+  }
+}
 </script>
 
 

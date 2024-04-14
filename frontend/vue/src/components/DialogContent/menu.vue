@@ -2,15 +2,28 @@
     <div class="menu-container">
         <div class="title">Все чаты</div>
         <div class="dropmenu">
-            <button class="dropbutton" type="button">
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-            </button>
+            <button class="new-dialog" type="button" @click="dialogModal = true">+</button>
+            <DialogModal v-show="dialogModal" @close="dialogModal = false"/>
 
         </div>
     </div>
 </template>
+
+<script setup>
+import { ref } from 'vue'
+let dialogModal = ref(false)
+</script>
+
+<script>
+import DialogModal from '../ModalWindows/newDialog.vue'
+
+export default {
+  name: 'MenuContainer',
+  components: {
+    DialogModal
+  }
+}
+</script>
 
 <style scoped>
 .menu-container {
@@ -42,7 +55,7 @@
     justify-content: flex-end;
 }
 
-.dropbutton {
+.new-dialog {
     height: min-content;
     display: flex;
     justify-content: flex-end;
@@ -51,18 +64,11 @@
 
     background: none;
     border: none;
-}
-
-.dot{
-    width: 10px;
-    height: 10px;
-    background-color: white;
-    margin: 3px;
-
-    border-radius: 50%;
-
+    color: white;
+    font-size: 3svw;
     cursor: pointer;
 }
+
 
 @media screen and (max-width: 1200px) {
     .title{
