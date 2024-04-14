@@ -7,11 +7,4 @@ const connection = mysql.createConnection({
     port: 3306
 })
 
-connection.connect((err) => {
-    if (err) {
-        return console.log(`Ошибка: ${err.message}`)
-    }
-    console.log('Соединение установлено')
-})
-
 module.exports = connection
