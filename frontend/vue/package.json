@@ -12,6 +12,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "crypto-js": "^4.2.0",
     "vue": "^3.3.11",
     "vuex": "^4.1.0"
   },

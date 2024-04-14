@@ -4,26 +4,55 @@
             <div class="reg-container__exit">
                 <button type="button" @click="emits('close')">X</button>
             </div>
-            <input type="text" placeholder="Ваш ник">
-            <input type="password" name="" id="" placeholder="Ваш пароль">
-            <button type="button">Зарегистрироваться</button>
+            <input type="text" placeholder="Ваш ник" v-model="username" required minlength="4">
+            <input type="password" name="" id="" placeholder="Ваш пароль" v-model="password" required minlength="8">
+            <button type="button" @click="reg()">Регистрация</button>
         </div>
     </div>
 
 </template>
 
 <script>
+import hashPassword from './hashpasswd.js'
+
 export default {
-  name: 'RegModal'
+    name: 'RegModal'
 }
 </script>
 
 <script setup>
-import { defineEmits } from 'vue'
+import { defineEmits, ref } from 'vue'
+
 const emits = defineEmits(['close'])
+let username = ref('')
+let password = ref('')
 
+const reg = async () => {
+    const url = 'http://localhost:3000/api/reg';
 
+    const data = {
+        username: username.value,
+        hashedPassword: hashPassword(password.value)
+    }
 
+    console.log('Sending Data:', data);
+
+    const requestOptions = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    };
+
+    try {
+        let response = await fetch(url, requestOptions);
+        let json = await response.json();
+        console.log('Response:', json);
+    } catch (error) {
+        console.error('Fetch Error:', error);
+    }
+}
 
 </script>
 
@@ -43,6 +72,7 @@ const emits = defineEmits(['close'])
     position: absolute;
     top: 1svw;
     right: 1svw;
+    
 }
 
 .reg-container__exit button {
@@ -87,5 +117,12 @@ input{
     padding: 1svw 2svw;
     border: none;
     background-color: rgb(50, 50, 50);
+}
+
+button{
+    font-size: 1svw;
+    padding: 0.5svw;
+    border-radius: 0.7svw;
+    border: none;
 }
 </style>

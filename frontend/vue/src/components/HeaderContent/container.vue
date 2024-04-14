@@ -9,18 +9,20 @@
             </div>
         </div>
 
-        <div class="account">
-            <div class="action-container">
-                <button type="button" class="action__button" @click="regModal = true">Зарегистрироваться</button >
+        <div class="login-container" v-if=!auth>
+                <button type="button" class="action__button" @click="regModal = true">Войти в сеть</button >
                     <RegModal  v-show="regModal" @close="regModal = false"/>
             </div>
+
+        <div class="account" v-if=auth>
+
             <div class="name">
                 <span>Адада</span>
             </div>
 
             <div class="avatar">
                 <picture>
-                    <img src="../../../public/assets/avatar.png" alt="">
+                    <img src="../../../public/assets/profile-simple-svgrepo-com.svg" alt="">
                 </picture>
             </div>
         </div>
@@ -41,8 +43,12 @@
 </script>
 
 <script setup>
-    import { ref } from 'vue';
+    import { ref, inject } from 'vue';
     let regModal = ref(false)
+
+    const store = inject('store')
+
+    let auth = ref(store.state.AUTHORIZED)
 </script>
 
 
@@ -100,7 +106,7 @@ img{
     align-items: center;
 }
 
-.account {
+.account, .login-container {
   justify-self: end; 
   grid-area: account; 
 
@@ -108,6 +114,17 @@ img{
   justify-content: center;
   align-items: center;
   gap: 1svw;
+}
+
+.login-container{
+    gap: 0.5svw;
+}
+
+.login-container .action__button{
+    font-size: 1svw;
+    padding: 0.5svw;
+    border-radius: 0.7svw;
+    border: none;
 }
 
 .avatar{

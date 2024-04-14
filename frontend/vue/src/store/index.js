@@ -5,7 +5,8 @@ export default createStore({
   state: {
     dialogs: null,
     chatName: "None",
-    regmodal: false
+    regmodal: false,
+    authorized: false
   },
 
   getters: {
@@ -19,6 +20,10 @@ export default createStore({
 
     REGMODAL: state => {
       return state.regmodal
+    },
+
+    AUTHORIZED: state => {
+      return state.authorized
     }
   },
 
@@ -33,6 +38,10 @@ export default createStore({
 
     SET_REGMODAL: (state, regmodal) => {
       state.regmodal = regmodal
+    },
+
+    SET_AUTHORIZED: (state, authorized) => {
+      state.authorized = authorized
     }
   },
 
@@ -47,6 +56,10 @@ GET_CHATNAME: ({commit}, chatName) => {
 
 GET_REGMODAL: ({commit}, regmodal) => {
   commit('SET_REGMODAL', regmodal)
+},
+
+GET_AUTHORIZED: ({commit}, authorized) => {
+  commit('SET_AUTHORIZED', authorized)
 }
 
 }})
