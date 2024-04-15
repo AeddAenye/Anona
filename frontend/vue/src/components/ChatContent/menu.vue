@@ -7,10 +7,10 @@
     </div>
     <div class="friend">
       <div class="avatar">
-        <img src="../../../public/assets/avatar.png" alt="">
+        <img src="../../../public/assets/profile-simple-svgrepo-com.svg" alt="">
       </div>
       <div class="name">
-        <span>Адада</span>
+        <span>{{ friendname }}</span>
       </div>
     </div>
     <div class="dots">
@@ -24,13 +24,16 @@
 </template>
 
 <script setup>
-import { inject } from 'vue'
+import { inject, computed } from 'vue'
 
 const store = inject('store')
 
+let friendname = computed(() => store.getters.getFriendname)
+
 const returnToDialogsList = () => {
   console.log('click');
-  store.commit('SET_CHATNAME', 'None')
+  store.commit('setFriendname', '')
+  console.log(store.getters.getFriendname);
 }
 </script>
 

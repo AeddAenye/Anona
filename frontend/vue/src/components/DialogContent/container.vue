@@ -1,8 +1,8 @@
 <template>
   <Menu />
   <div class="dialog-container">
-    <Dialog v-for="dialog in dialogs" :key="dialog.id"
-    :dialogName="dialog.name" :dialogAvatar="dialog.avatar" :lastMessage="dialog.lastMessage"/>
+    <Dialog v-for="chat in chats" :key="chat.id"
+    :dialogName="chat.friendname" @click="gotoChat(chat)"/>
   </div>
 </template>
 
@@ -20,10 +20,17 @@ export default {
 }
 </script>
 <script setup>
-import { ref, onMounted, inject } from 'vue'
+import { ref, onMounted, inject, computed } from 'vue'
 
 const store = inject('store')
 let dialogs = ref({})
+
+const chats = computed(() => store.getters.getChats)
+
+const gotoChat = (chat) => {
+  store.commit('setFriendname', chat.friendname)
+  store.commit('setChatId', chat.id)
+}
 
 </script>
 

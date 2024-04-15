@@ -161,6 +161,36 @@ app.post('/api/newDialog', async (req, res) => {
 
 })
 
+app.get('/api/chats', async (req, res) => {
+  const owner = req.query.owner
+
+  sql = `SELECT * FROM chats WHERE owner_nickname OR friend_nickname = ?`
+  db_connection.query(sql, [owner], async (err, result) => {
+    if (err) {
+      console.log(err)
+      return res.status(500).json(err.message)
+    }
+    return res.status(200).json(result)
+  })
+})
+
+app.post('/api/sendMessage', async (req, res) => {
+  // Преобразование timestamp в формат даты и времени
+  const sendingTime = new Date(req.body.sending_time);
+
+  // Запрос SQL с преобразованным временем
+  const sql = `INSERT INTO messages (owner_nickname, friend_nickname, text, chat_id, sending_time) VALUES (?, ?, ?, ?, ?)`;
+  db_connection.query(sql, [req.body.username, req.body.friendname, req.body.text, req.body.chat_id, sendingTime], async (err, result) => {
+    console.log('вход после sql');
+    if (err) {
+      console.log(err);
+      return res.status(500).json(err.message);
+    }
+    return res.status(201).json('Message sent successfully');
+  });
+});
+
+
 const start = async () => {
   try {
     await db_connection.connect()

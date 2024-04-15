@@ -35,6 +35,7 @@
   
     try {
       await store.dispatch('login', data);
+      await store.dispatch('getChats');
       emits('close');
     } catch (error) {
       console.error('Login Error:', error);
@@ -64,8 +65,8 @@
 .reg-container__exit button {
     background-color: red;
     border: none;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     border-radius: 0.7svw;
     color: white;
 

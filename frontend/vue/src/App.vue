@@ -1,9 +1,9 @@
 <template>
     <Header />
-    <div class="wrapper dialog_wrapper">
+    <div class="wrapper dialog_wrapper" v-if="friendname == ''">
         <Dialogs />
     </div>
-    <div class="wrapper chat-wrapper" v-if="false" >
+    <div class="wrapper chat-wrapper" v-if="friendname != ''">
         <Chat />
     </div>
 </template>
@@ -23,13 +23,22 @@ export default {
 </script>
 
 <script setup>
-import { provide, ref, watch, onBeforeMount } from 'vue'
+import { provide, ref, watch, onBeforeMount, computed } from 'vue'
 import { useStore } from 'vuex'
 
 const store = useStore()
 provide('store', store)
 
+const friendname = computed(() => store.getters.getFriendname)
+
+
 onBeforeMount(() => {
+
+    localStorage.removeItem('access_token')
+    localStorage.removeItem('username')
+    localStorage.removeItem('authorized')
+    localStorage.removeItem('friendname')
+
     fetch('http://localhost:3000/api/token',  {
         method: 'POST',
         headers: {
@@ -67,6 +76,10 @@ onBeforeMount(() => {
     display: flex;
     flex-direction: column;
 
+}
+
+.chat-wrapper{
+    position: relative;
 }
 
 @media screen and (max-width: 900px) {

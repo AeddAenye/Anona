@@ -1,13 +1,26 @@
 <template>
   <div class="input-container">
     <input type="text" v-model="inputValue" class="input" placeholder="Сообщение">
-    <button type="button" class="send"><img src="../../../public/assets/send.svg" alt=""></button>
+    <button type="button" class="send" @click="sendMessage()"><img src="../../../public/assets/send.svg" alt=""></button>
   </div>
 </template>
   
 <script setup>
-  import { ref } from 'vue';
+  import { ref, inject } from 'vue';
   let inputValue = ref('');
+
+  const store = inject('store');
+
+  const sendMessage = () => {
+    store.dispatch('sendMessage', {
+      chat_id: store.getters.getChatId,
+      text: inputValue.value,
+      friendname: store.getters.getFriendname,
+      username: store.getters.getUsername,
+      sending_time: new Date().getTime()
+    })
+  }
+
 </script>
   
 <style scoped>
@@ -26,6 +39,11 @@
   justify-content: center;
   align-items: center;
   gap: 1svw;
+
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .input {
