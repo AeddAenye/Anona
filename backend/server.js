@@ -162,10 +162,11 @@ app.post('/api/newDialog', async (req, res) => {
 })
 
 app.get('/api/chats', async (req, res) => {
-  const owner = req.query.owner
+  const username = req.query.owner
 
-  sql = `SELECT * FROM chats WHERE owner_nickname OR friend_nickname = ?`
-  db_connection.query(sql, [owner], async (err, result) => {
+  sql = `SELECT * FROM chats WHERE owner_nickname = ? OR friend_nickname = ?`
+  db_connection.query(sql, [username, username], async (err, result) => {
+    console.log('вход после sql', result);
     if (err) {
       console.log(err)
       return res.status(500).json(err.message)
@@ -173,6 +174,7 @@ app.get('/api/chats', async (req, res) => {
     return res.status(200).json(result)
   })
 })
+
 
 app.post('/api/sendMessage', async (req, res) => {
   // Преобразование timestamp в формат даты и времени
@@ -187,6 +189,21 @@ app.post('/api/sendMessage', async (req, res) => {
       return res.status(500).json(err.message);
     }
     return res.status(201).json('Message sent successfully');
+  });
+});
+
+app.get('/api/NewMessages/:chatId', async (req, res) => {
+  const chatId = req.params.chatId;
+
+  const sql = `SELECT * FROM messages WHERE chat_id = ? ORDER BY sending_time ASC`;
+  db_connection.query(sql, [chatId], async (err, result) => {
+    if (err) {
+      console.log(err);
+      return res.status(500).json(err.message);
+    }
+
+    // Отправляем новые сообщения клиенту
+    return res.status(200).json(result);
   });
 });
 

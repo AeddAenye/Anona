@@ -19,6 +19,9 @@
       username: store.getters.getUsername,
       sending_time: new Date().getTime()
     })
+
+
+    inputValue.value = '';
   }
 
 </script>

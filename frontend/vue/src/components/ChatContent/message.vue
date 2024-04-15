@@ -1,6 +1,6 @@
 <template>
     <div class="message">
-      <div class="message__name">{{ message.owner }}</div>
+      <div class="message__name">{{ message.owner_nickname }}</div>
       <div class="message__text">{{ message.text }}</div>
     </div>
   </template>
