@@ -18,6 +18,7 @@ app.post('/api/reg', async (req, res) => {
 
   let sql = `SELECT username FROM users WHERE username = ?`
   db_connection.query(sql, [username], async (err, result) => {
+    console.log('первый этап проверки');
     if (err) {
       return res.status(500).json(err.message)
     }
@@ -27,6 +28,7 @@ app.post('/api/reg', async (req, res) => {
     } else {
       sql = `INSERT INTO users (username, passwd_hash) VALUES (?, ?)`
       db_connection.query(sql, [username, hashedPassword], async (err, result) => {
+        console.log('второй этап проверки');
         if (err) {
           return res.status(500).json(err.message)
         }
@@ -150,6 +152,7 @@ app.post('/api/newDialog', async (req, res) => {
     if (result.length === 0) {
       sql = `INSERT INTO chats (owner_nickname, friend_nickname) VALUES (?, ?)`
       db_connection.query(sql, [username, friendname], async (err, result) => {
+        console.log('вход после sql', result);
         if (err) {
           console.log(err)
           return res.status(500).json(err.message)
